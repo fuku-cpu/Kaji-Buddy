@@ -423,3 +423,6 @@ MVPは大きく5つの画面で構成されます。
 | 通知機能 | Action Mailer | 本リリース | Rails標準のメール通知機能。 |
 |  | Noticed gem | 本リリース | 通知管理の効率化、複数タイプへの対応。 |
 | 自動提案 | ロジック実装 | 本リリース | 平均時間計算、優先度判定、自動組み立て。 |
+
+## 11. 画面遷移図
+### [kaji buddy 画面遷移図 (figma)](https://www.figma.com/design/1x82EuXfSHNcpfRt6Y54Pk/Kaji-Buddy_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=4-224&p=f&t=lSYqdR4UqvQKCSeT)
