@@ -432,4 +432,4 @@ MVPは大きく5つの画面で構成されます。
 ### [kaji buddy 画面遷移図 (figma)](https://www.figma.com/design/1x82EuXfSHNcpfRt6Y54Pk/Kaji-Buddy_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=4-224&p=f&t=lSYqdR4UqvQKCSeT)
 
 ## 12. ER図
-[![Image from Gyazo](https://i.gyazo.com/12a80bd8d77f8edfc5200a22ea7bd449.png)](https://gyazo.com/12a80bd8d77f8edfc5200a22ea7bd449)
+[![Image from Gyazo](https://i.gyazo.com/f8111264dd2479faa57538a8f09e2114.png)](https://gyazo.com/f8111264dd2479faa57538a8f09e2114)
