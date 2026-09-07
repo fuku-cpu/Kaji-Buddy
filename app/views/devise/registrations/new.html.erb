@@ -1,0 +1,39 @@
+<div class="min-h-screen flex flex-row justify-center items-center px-4">
+  <div class="login-section pt-3">
+    <div class="card bg-base-100 shadow-md text-center pt-5 mx-auto w-96">
+      <h1 class="text-2xl font-bold">サインアップ画面</h1>
+
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="mb-3 mt-4">
+            <%= f.email_field :email,
+                  class: "input input-bordered w-full",
+                  placeholder: "メールアドレス" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.password_field :password,
+                  class: "input input-bordered w-full",
+                  placeholder: "パスワード" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.password_field :password_confirmation,
+                  class: "input input-bordered w-full",
+                  placeholder: "パスワード確認" %>
+          </div>
+
+          <%= f.submit "サインアップ", class: "btn btn-primary w-full" %>
+        <% end %>
+
+    </div>
+
+    <div class="card bg-base-100 shadow-md text-center py-2 mt-3 mx-auto w-96">
+      <div class="card-body">
+        既にアカウントを持っている？
+        <%= link_to "サインイン", new_user_session_path,
+              class: "text-sm my-4 link link-info" %>
+      </div>
+    </div>
+  </div>
+</div>
