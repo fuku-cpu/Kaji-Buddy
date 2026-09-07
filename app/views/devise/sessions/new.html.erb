@@ -1,0 +1,39 @@
+<div class="min-h-screen flex flex-row justify-center items-center gap-8 px-4">
+  
+
+  <div class="flex flex-col gap-4 pt-3">
+    <div class="card bg-base-100 shadow-md w-96 text-center pt-5">
+      <h1 class="text-2xl font-bold">ログイン画面</h1>
+
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="mb-3 mt-4">
+            <%= f.email_field :email,
+                  class: "input input-bordered w-full",
+                  placeholder: "メールアドレス" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.password_field :password,
+                  class: "input input-bordered w-full",
+                  placeholder: "パスワード" %>
+          </div>
+
+          <%= f.submit "ログイン", class: "btn btn-primary w-full" %>
+        <% end %>
+
+
+        <%= link_to "パスワードを忘れた？", new_user_password_path,
+              class: "text-sm block my-4 link link-hover" %>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow-md w-96 text-center py-2 mt-3">
+      <div class="card-body">
+        アカウントを持っていない？
+        <%= link_to "サインアップ", new_user_registration_path,
+              class: "text-sm my-4 link link-info" %>
+      </div>
+    </div>
+  </div>
+</div>

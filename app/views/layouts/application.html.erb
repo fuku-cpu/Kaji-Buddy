@@ -24,6 +24,13 @@
   </head>
 
   <body>
+
+    <% if notice %>
+    <p class="text-success text-sm mt-2 text-center"><%= notice %></p>
+    <% elsif alert %>
+    <p class="text-error text-sm mt-2 text-center"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
