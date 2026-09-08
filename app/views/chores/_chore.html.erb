@@ -1,0 +1,12 @@
+<li class="flex items-center justify-between py-2">
+  <div>
+    <p class="font-medium text-base-content"><%= chore.name %></p>
+    <% if chore.tools.present? %>
+      <p class="text-xs text-base-content/50"><%= chore.tools %></p>
+    <% end %>
+  </div>
+  <div class="flex items-center gap-2 text-sm text-base-content/70">
+    <span><%= chore.estimated_minutes %>分</span>
+    <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"/></svg>
+  </div>
+</li>
