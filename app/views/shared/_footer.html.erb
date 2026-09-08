@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+
+<div class="dock">
+
+  <%# TODO: リンク確定後、今日の家事リストへのlink_toに置き換える %>
+  <a href="#" class="dock-active">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="dock-label">今日の家事リスト</span>
+  </a>
+
+  <%# TODO: リンク確定後、家事一覧へのlink_toに置き換える %>
+  <a href="#">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span class="dock-label">家事一覧</span>
+  </a>
+
+  <%# TODO: リンク確定後、家事記録へのlink_toに置き換える %>
+  <a href="#">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 3v18M6 3h9l3 4-3 4H6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>
+    <span class="dock-label">家事記録</span>
+  </a>
+
+</div>
+
+<% else %>
+<footer class="footer footer-center p-4 text-base-content/50 text-xs">
+  <p>© 2026 カジバディ</p>
+</footer>
+<% end %>
