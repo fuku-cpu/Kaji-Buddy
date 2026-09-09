@@ -32,4 +32,10 @@
   <% if @chores_by_category.empty? %>
     <p class="text-center text-base-content/50 py-8">登録された家事がありません</p>
   <% end %>
+
+  <%= link_to new_chore_path, class: "btn btn-primary btn-circle fixed bottom-24 right-4 shadow-lg z-10" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+    </svg>
+  <% end %>
 </div>

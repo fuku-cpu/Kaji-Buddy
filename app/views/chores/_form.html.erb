@@ -1,0 +1,54 @@
+<%= form_with model: chore, local: true, class: "space-y-4" do |f| %>
+  <% if chore.errors.any? %>
+    <div role="alert" class="alert alert-error">
+      <span><%= chore.errors.full_messages.join("、") %></span>
+    </div>
+  <% end %>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= f.label :name, class: "label" do %>
+        <span class="label-text">家事の名称 <span class="text-error">*</span></span>
+      <% end %>
+      <%= f.text_field :name, placeholder: "例：床掃除", class: "input input-bordered w-full" %>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= f.label :chore_category_id, "カテゴリー", class: "label" %>
+      <%= f.collection_select :chore_category_id, ChoreCategory.all, :id, :name,
+            { include_blank: "選択してください" },
+            { class: "select select-bordered w-full" } %>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= f.label :estimated_minutes, "想定所要時間（分）", class: "label" %>
+      <%= f.number_field :estimated_minutes, placeholder: "15", class: "input input-bordered w-full" %>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= f.label :tools, class: "label" do %>
+        <span class="label-text">必要な道具</span>
+      <% end %>
+      <p class="text-sm text-base-content/60 -mt-2 mb-1">例： クイックルワイパー、洗剤など</p>
+      <%= f.text_field :tools, placeholder: "必要な道具を入力", class: "input input-bordered w-full" %>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow-sm">
+    <div class="card-body">
+      <%= f.label :memo, "メモ・やり方のコツ(任意)", class: "label" %>
+      <%= f.text_area :memo, rows: 3, placeholder: "洗剤は〇〇を使う、など手順やコツがあれば",
+            class: "textarea textarea-bordered w-full" %>
+    </div>
+  </div>
+
+  <div class="px-2">
+    <%= f.submit "登録する", class: "btn btn-primary w-full" %>
+  </div>
+<% end %>

@@ -11,4 +11,23 @@ class ChoresController < ApplicationController
 
       @chores_by_category = chores.group_by(&:chore_category)
     end
+
+    def new
+      @chore = current_user.chores.build
+    end
+
+    def create
+      @chore = current_user.chores.build(chore_params)
+      if @chore.save
+        redirect_to chores_path, notice: "家事を登録しました"
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    private
+
+    def chore_params
+      params.require(:chore).permit(:name, :chore_category_id, :estimated_minutes, :tools, :memo)
+    end
 end
