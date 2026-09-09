@@ -31,7 +31,9 @@
     <p class="text-error text-sm mt-2 text-center"><%= alert %></p>
     <% end %>
 
-    <%= yield %>
+    <main class="pb-24">
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
   </body>
 </html>
