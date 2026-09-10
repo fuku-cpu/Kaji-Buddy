@@ -1,7 +1,9 @@
 <li class="flex items-center justify-between py-2">
   <div>
-    <p class="font-medium text-base-content"><%= chore.name %></p>
-    <% if chore.tools.present? %>
+    <%= link_to chore_path(chore), class: "hover:underline" do %>
+      <p class="font-medium text-base-content"><%= chore.name %></p>
+    <% end %>
+      <% if chore.tools.present? %>
       <p class="text-xs text-base-content/50"><%= chore.tools %></p>
     <% end %>
   </div>

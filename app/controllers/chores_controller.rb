@@ -25,6 +25,10 @@ class ChoresController < ApplicationController
       end
     end
 
+    def show
+      @chore = Chore.for_user(current_user).find(params[:id])
+    end
+
     private
 
     def chore_params
