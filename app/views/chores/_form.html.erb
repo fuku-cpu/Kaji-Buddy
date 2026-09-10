@@ -1,9 +1,5 @@
 <%= form_with model: chore, local: true, class: "space-y-4" do |f| %>
-  <% if chore.errors.any? %>
-    <div role="alert" class="alert alert-error">
-      <span><%= chore.errors.full_messages.join("、") %></span>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", object: chore %>
 
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">

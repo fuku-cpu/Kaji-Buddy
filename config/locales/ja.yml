@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      chore: "家事"
+      chore_category: "カテゴリー"
+    attributes:
+      chore:
+        name: "家事の名称"
+        chore_category: "カテゴリー"
+        chore_category_id: "カテゴリー"
+        estimated_minutes: "想定所要時間"
+        tools: "必要な道具"
+        memo: "メモ"
+  errors:
+    messages:
+      blank: "を入力してください"
