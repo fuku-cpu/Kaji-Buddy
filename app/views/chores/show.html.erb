@@ -1,0 +1,43 @@
+<div class="min-h-screen bg-base-200 pb-24">
+  <div class="navbar bg-base-100">
+    <div class="flex-1 flex items-center gap-2">
+      <%= link_to chores_path, class: "btn btn-ghost btn-circle" do %>
+        ←
+      <% end %>
+      <span class="text-lg font-bold"><%= @chore.name %></span>
+    </div>
+    <div class="flex-none gap-2">
+      <span class="btn btn-sm btn-outline btn-disabled" aria-disabled="true">編集</span>
+      <span class="btn btn-sm btn-outline btn-error btn-disabled" aria-disabled="true">削除</span>
+    </div>
+  </div>
+
+  <div class="p-4 space-y-4">
+    <div class="card bg-base-100 shadow-sm p-4">
+      <div class="flex justify-between items-center mb-3">
+        <span class="font-bold">必要なもの</span>
+        <span class="badge badge-neutral"><%= @chore.estimated_minutes %> 分</span>
+      </div>
+      <% if @chore.tools.present? %>
+        <div class="flex flex-wrap gap-2">
+          <% @chore.tools.split(",").each do |tool| %>
+            <span class="badge badge-outline"><%= tool.strip %></span>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="text-sm text-base-content/60">道具の登録なし</p>
+      <% end %>
+    </div>
+
+    <div>
+      <h2 class="font-bold mb-2">手順</h2>
+      <% if @chore.memo.present? %>
+        <div class="prose text-sm">
+          <%= simple_format(@chore.memo) %>
+        </div>
+      <% else %>
+        <p class="text-sm text-base-content/60">メモの登録なし</p>
+      <% end %>
+    </div>
+  </div>
+</div>

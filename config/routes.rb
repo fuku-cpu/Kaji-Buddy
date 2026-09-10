@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :chores, only: %i[index new create]
+  resources :chores, only: %i[index new create show]
 end
