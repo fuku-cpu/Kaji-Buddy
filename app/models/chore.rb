@@ -7,4 +7,12 @@ class Chore < ApplicationRecord
 
     scope :common, -> { where(user_id: nil) }
     scope :for_user, ->(user) {where(user_id: [nil, user.id]) }
+
+    def owned_by?(user)
+      user_id == user.id
+    end
+
+    def common?
+      user_id.nil?
+    end
 end
