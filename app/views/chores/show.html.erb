@@ -5,10 +5,15 @@
         ←
       <% end %>
       <span class="text-lg font-bold"><%= @chore.name %></span>
+      <% if @chore.common? %>
+        <span class="badge badge-neutral">共通家事</span>
+      <% end %>
     </div>
     <div class="flex-none gap-2">
-      <span class="btn btn-sm btn-outline btn-disabled" aria-disabled="true">編集</span>
-      <span class="btn btn-sm btn-outline btn-error btn-disabled" aria-disabled="true">削除</span>
+      <% if @chore.owned_by?(current_user) %>
+        <%= link_to "編集", edit_chore_path(@chore), class: "btn btn-sm btn-outline" %>
+        <span class="btn btn-sm btn-outline btn-error btn-disabled" aria-disabled="true">削除</span>
+      <% end %>
     </div>
   </div>
 

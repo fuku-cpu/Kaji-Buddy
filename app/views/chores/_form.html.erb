@@ -45,6 +45,6 @@
   </div>
 
   <div class="px-2">
-    <%= f.submit "登録する", class: "btn btn-primary w-full" %>
+    <%= f.submit (chore.new_record? ? "登録する" : "更新する"), class: "btn btn-primary w-full" %>
   </div>
 <% end %>

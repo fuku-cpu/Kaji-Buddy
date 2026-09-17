@@ -29,6 +29,19 @@ class ChoresController < ApplicationController
       @chore = Chore.for_user(current_user).find(params[:id])
     end
 
+    def edit
+      @chore = current_user.chores.find(params[:id])
+    end
+
+    def update
+      @chore = current_user.chores.find(params[:id])
+      if @chore.update(chore_params)
+        redirect_to chore_path(@chore), notice: "家事を更新しました"
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def chore_params
