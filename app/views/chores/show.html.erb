@@ -9,10 +9,13 @@
         <span class="badge badge-neutral">共通家事</span>
       <% end %>
     </div>
-    <div class="flex-none gap-2">
+    <div class="flex-none flex items-center gap-2">
       <% if @chore.owned_by?(current_user) %>
         <%= link_to "編集", edit_chore_path(@chore), class: "btn btn-sm btn-outline" %>
-        <span class="btn btn-sm btn-outline btn-error btn-disabled" aria-disabled="true">削除</span>
+        <%= button_to "削除", chore_path(@chore),
+          method: :delete,
+          data: {turbo_confirm: "この家事を削除すると、関連する記録もすべて削除されます。よろしいですか？"},
+          class: "btn btn-sm btn-error" %>
       <% end %>
     </div>
   </div>
