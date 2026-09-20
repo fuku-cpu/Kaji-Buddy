@@ -14,3 +14,6 @@ ja:
   errors:
     messages:
       blank: "を入力してください"
+  chores:
+    destroy:
+      success: "家事を削除しました"
