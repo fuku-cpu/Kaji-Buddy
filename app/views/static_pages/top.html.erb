@@ -1,20 +1,34 @@
-<div class="min-h-screen flex flex-row justify-center items-center px-4">
-  <div class="login-section pt-3">
-    <div class="card bg-base-100 shadow-md text-center pt-5 mx-auto w-96">
-      <h1 class="text-2xl font-bold">Kaji buddy</h1>
+<% if user_signed_in? %>
+  <div class="min-h-screen px-4 py-6">
+    <div class="max-w-md mx-auto space-y-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Kaji buddy</h1>
+        <%= link_to "ログアウト", destroy_user_session_path,
+          data: {turbo_method: :delete },
+          class: "btn btn-sm btn-ghost" %>
+      </div>
 
-      <div class="card-body">
-        <% if user_signed_in? %>
-          <p class="mb-4">ログイン中です</p>
-          <%= link_to "ログアウト", destroy_user_session_path,
-                data: { turbo_method: :delete },
-                class: "btn btn-primary w-full" %>
-        <% else %>
+      <% if @chore_list_entries.empty? %>
+        <p class="text-center opacity-60 mt-10">今日の家事はまだ登録されていません</p>
+      <% else %>
+        <% @chore_list_entries.each do |entry| %>
+          <%= render "chore_list_entries/entry", entry: entry %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="min-h-screen flex flex-row justify-center items-center px-4">
+    <div class="login-section pt-3">
+      <div class="card bg-base-100 shadow-md text-center pt-5 mx-auto w-96">
+        <h1 class="text-2xl font-bold">Kaji buddy</h1>
+
+        <div class="card-body">
           <p class="mb-4">ログインしていません</p>
           <%= link_to "ログイン", new_user_session_path,
                 class: "btn btn-primary w-full" %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

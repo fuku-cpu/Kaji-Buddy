@@ -32,3 +32,23 @@ end
 
 puts "カテゴリ数: #{ChoreCategory.count}"
 puts "家事数: #{Chore.count}"
+
+if Rails.env.development?
+  user = User.first
+
+  if user
+    ChoreListEntry.where(user: user, list_date: Date.current).destroy_all
+
+    Chore.find_each do |chore|
+      ChoreListEntry.find_or_create_by!(
+        user: user,
+        chore: chore,
+        list_date: Date.current
+      )
+    end
+
+    puts "今日の家事リスト件数: #{ChoreListEntry.where(list_date: Date.current).count}"
+  else
+    puts "ユーザーが存在しないため、今日の家事リストは作成されませんでした"
+  end
+end

@@ -5,6 +5,9 @@ class Chore < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :chore_category
 
+    has_many :chore_list_entries, dependent: :destroy
+    has_many :chore_records, dependent: :destroy
+
     scope :common, -> { where(user_id: nil) }
     scope :for_user, ->(user) {where(user_id: [nil, user.id]) }
 
