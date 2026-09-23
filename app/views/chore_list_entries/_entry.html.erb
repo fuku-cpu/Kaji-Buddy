@@ -1,0 +1,31 @@
+<%= turbo_frame_tag entry do %>
+  <div class="card bg-base-100 shadow-sm p-4 flex flex-row items-start gap-3">
+    <% if entry.chore_record.present? %>
+      <%= button_to chore_record_path(entry.chore_record), method: :delete,
+        class: "btn btn-circle btn-sm btn-success" do %>
+        ✓
+      <% end %>
+    <% else %>
+      <%= form_with url: chore_records_path, method: :post, class: "flex items-center gap-2" do |f| %>
+        <%= f.hidden_field :chore_list_entry_id, value: entry.id %>
+        <button type="submit" class="btn btn-circle btn-sm btn-outline"></button>
+        <%= f.number_field :actual_minutes,
+          value: entry.chore.estimated_minutes,
+          min: 0,
+          class: "input input-bordered input-sm w-16" %>
+        <span class="text-sm opacity-60">分</span>
+      <% end %>
+    <% end %>
+
+    <div class="flex-1">
+      <p class="<%= "line-through opacity-60" if entry.chore_record.present? %>">
+        <%= entry.chore.name %>
+        <span class="text-sm opacity-60"><%= entry.chore.estimated_minutes %>分</span>
+      </p>
+      <% if entry.chore_record.present? %>
+        <p class="text-sm opacity-60 mt-1">実施時間: <%= entry.chore_record.actual_minutes %>分</p>
+        <p class="text-sm text-success mt-1"><%= chore_feedback_message(entry.chore_record) %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

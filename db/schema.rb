@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_08_043447) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_21_124705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -18,6 +18,30 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_043447) do
     t.datetime "created_at", null: false
     t.string "name", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chore_list_entries", force: :cascade do |t|
+    t.bigint "chore_id", null: false
+    t.datetime "created_at", null: false
+    t.date "list_date", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["chore_id"], name: "index_chore_list_entries_on_chore_id"
+    t.index ["user_id", "chore_id", "list_date"], name: "idx_unique_entry_per_day", unique: true
+    t.index ["user_id"], name: "index_chore_list_entries_on_user_id"
+  end
+
+  create_table "chore_records", force: :cascade do |t|
+    t.integer "actual_minutes"
+    t.bigint "chore_id", null: false
+    t.bigint "chore_list_entry_id", null: false
+    t.datetime "created_at", null: false
+    t.date "performed_on", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["chore_id"], name: "index_chore_records_on_chore_id"
+    t.index ["chore_list_entry_id"], name: "index_chore_records_on_chore_list_entry_id"
+    t.index ["user_id"], name: "index_chore_records_on_user_id"
   end
 
   create_table "chores", force: :cascade do |t|
@@ -46,6 +70,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_043447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chore_list_entries", "chores"
+  add_foreign_key "chore_list_entries", "users"
+  add_foreign_key "chore_records", "chore_list_entries"
+  add_foreign_key "chore_records", "chores"
+  add_foreign_key "chore_records", "users"
   add_foreign_key "chores", "chore_categories"
   add_foreign_key "chores", "users"
 end
