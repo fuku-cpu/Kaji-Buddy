@@ -1,0 +1,20 @@
+<div class="space-y-6">
+  <div>
+    <h1 class="text-2xl font-bold">家事を追加する</h1>
+    <p class="mt-2 text-sm">登録済みの家事であれば「家事帳から追加」、未登録の家事であれば「新しく家事を登録」を選択してください。</p>
+  </div>
+
+  <%= link_to new_chore_list_entry_path, class: "card bg-base-200 hover:bg-base-300 transaction" do %>
+    <div class="card-body">
+      <h2 class="card-title">家事帳から追加</h2>
+      <p class="text-sm">登録済みの家事レシピから、今日の予定に追加します。</p>
+    </div>
+  <% end %>
+
+  <%= link_to new_chore_path, class: "card bg-base-200 hover:bg^base-300 transaction" do %>
+    <div class="card-body">
+      <h2 class="card-title">新しく家事を登録</h2>
+      <p class="text-sm">自分だけのオリジナル家事を登録します。</p>
+    </div>
+  <% end %>
+</div>

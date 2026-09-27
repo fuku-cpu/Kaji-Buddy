@@ -1,0 +1,2 @@
+module ChoreListEntriesHelper
+end

@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :chores, only: %i[index new create show edit update destroy]
   resources :chore_records, only: [:create, :destroy]
+  resources :chore_list_entries, only: %i[new create] do
+    get :guide, on: :collection
+  end
 end
