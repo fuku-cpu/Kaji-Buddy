@@ -32,3 +32,11 @@
     </div>
   </div>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to guide_chore_list_entries_path,
+        class: "btn btn-prmary btn-circle btn-lg fixed bottom-20 right-4 shadow-lg",
+        aria: { label: "家事を追加する" } do %>
+    +
+  <% end %>
+<% end %>

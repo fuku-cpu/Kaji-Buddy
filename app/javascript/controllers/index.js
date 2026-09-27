@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ChoreSelectionController from "./chore_selection_controller"
+application.register("chore-selection", ChoreSelectionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
