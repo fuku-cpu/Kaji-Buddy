@@ -3,6 +3,13 @@ class ChoreListEntriesController < ApplicationController
 
   def guide; end
   
+  def index
+    @chore_list_entries = ChoreListEntry
+      .for_user(current_user)
+      .for_date(Date.current)
+      .includes(:chore, :chore_record)
+      .order(:id)
+  end
 
   def new
     @chores_by_category = Chore.for_user(current_user)
