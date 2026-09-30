@@ -1,5 +1,4 @@
-<% if user_signed_in? %>
-  <div class="min-h-screen px-4 py-6">
+<div class="min-h-screen px-4 py-6">
     <div class="max-w-md mx-auto space-y-4">
       <div class="flex justify-between items-center">
         <h1 class="text-2xl font-bold">Kaji buddy</h1>
@@ -17,26 +16,9 @@
       <% end %>
     </div>
   </div>
-<% else %>
-  <div class="min-h-screen flex flex-row justify-center items-center px-4">
-    <div class="login-section pt-3">
-      <div class="card bg-base-100 shadow-md text-center pt-5 mx-auto w-96">
-        <h1 class="text-2xl font-bold">Kaji buddy</h1>
 
-        <div class="card-body">
-          <p class="mb-4">ログインしていません</p>
-          <%= link_to "ログイン", new_user_session_path,
-                class: "btn btn-primary w-full" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-<% if user_signed_in? %>
   <%= link_to guide_chore_list_entries_path,
         class: "btn btn-prmary btn-circle btn-lg fixed bottom-20 right-4 shadow-lg",
         aria: { label: "家事を追加する" } do %>
     +
   <% end %>
-<% end %>

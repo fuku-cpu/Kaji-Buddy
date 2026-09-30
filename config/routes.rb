@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'static_pages#top'
+
+  authenticated :user do
+    root "chore_list_entries#index", as: :authenticated_root
+  end 
+
+  devise_scope :user do
+    root "devise/sessions#new"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :chores, only: %i[index new create show edit update destroy]
   resources :chore_records, only: [:create, :destroy]
-  resources :chore_list_entries, only: %i[new create] do
+  resources :chore_list_entries, only: %i[index new create] do
     get :guide, on: :collection
   end
 end
