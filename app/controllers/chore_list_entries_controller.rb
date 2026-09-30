@@ -39,4 +39,13 @@ class ChoreListEntriesController < ApplicationController
 
     redirect_to root_path, notice: "#{chores.size}件の家事を今日のリストに追加しました"
   end
+
+  def destroy
+    entry = current_user.chore_list_entries.find(params[:id])
+    if entry.destroy
+      redirect_to chore_list_entries_path, notice: "「#{entry.name}」をリストから外しました", status: :see_other
+    else
+      redirect_to chore_list_entries_path, alert: "完了済みの家事は外せません", status: :see_other
+    end
+  end
 end

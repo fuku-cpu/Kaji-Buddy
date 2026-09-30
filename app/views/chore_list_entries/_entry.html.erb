@@ -27,5 +27,14 @@
         <p class="text-sm text-success mt-1"><%= chore_feedback_message(entry.chore_record) %></p>
       <% end %>
     </div>
+
+    <% unless entry.completed? %>
+      <%= button_to "外す", chore_list_entry_path(entry), method: :delete,
+            class: "btn btn-ghost btn-sm text-error",
+            form: { data: {
+              turbo_confirm: " 「#{entry.chore.name}」を今日のリストから外しますか？",
+              turbo_frame: "_top"
+            } } %>
+    <% end %> 
   </div>
 <% end %>
