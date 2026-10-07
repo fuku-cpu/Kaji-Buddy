@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_21_124705) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_03_135657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -32,7 +32,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_21_124705) do
   end
 
   create_table "chore_records", force: :cascade do |t|
-    t.integer "actual_minutes"
+    t.integer "actual_minutes", null: false
     t.bigint "chore_id", null: false
     t.bigint "chore_list_entry_id", null: false
     t.datetime "created_at", null: false
@@ -40,7 +40,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_21_124705) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["chore_id"], name: "index_chore_records_on_chore_id"
-    t.index ["chore_list_entry_id"], name: "index_chore_records_on_chore_list_entry_id"
+    t.index ["chore_list_entry_id"], name: "index_chore_records_on_chore_list_entry_id", unique: true
+    t.index ["user_id", "performed_on"], name: "index_chore_records_on_user_id_and_performed_on"
     t.index ["user_id"], name: "index_chore_records_on_user_id"
   end
 

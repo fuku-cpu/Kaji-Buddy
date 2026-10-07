@@ -11,20 +11,19 @@
   <% end %>
 
   
-  <%= link_to chores_path, class: "#{'active text-primary' if current_page?(chores_path)}" do %>
+  <%= link_to chores_path, class: "#{'dock-active' if current_page?(chores_path)}" do %>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>
     <span class="dock-label">家事一覧</span>
   <% end %>
 
-  <%# TODO: リンク確定後、家事記録へのlink_toに置き換える %>
-  <a href="#">
+  <%= link_to chore_records_path, class: "#{'dock-active' if current_page?(chore_records_path)}" do %>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path d="M6 3v18M6 3h9l3 4-3 4H6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>
     <span class="dock-label">家事記録</span>
-  </a>
+  <% end %>
 
 </div>
 

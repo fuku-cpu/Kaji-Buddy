@@ -1,0 +1,51 @@
+<div class="max-w-md mx-auto px-4 py-6 space-y-6">
+  <header>
+    <h1 class="text-2xl font-bold">これまでの歩み</h1>
+    <p class="text-sm text-base-content/60">今週 (<%= period_label(@period) %>) </p>
+  </header>
+
+  <section class="card bg-primary text-primary-content">
+    <div class="card-body">
+      <p class="text-xs opacity-80">今週の家事実施時間</p>
+      <p class="text-4xl font-bold"><%= format_minutes(@total_minutes) %></p>
+    </div>
+  </section>
+
+  <section class="space-y-5">
+    <h2 class="text-lg font-bold">日々の積み重ね</h2>
+
+    <% if @records_by_date.empty? %>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body text-sm text-base-content/60">
+          今週はまだ記録がありません。ゆっくり過ごせていたら、それも大切な時間です。
+        </div>
+      </div>
+    <% else %>
+      <% @records_by_date.each do |date, records| %>
+        <div class="space-y-2">
+          <h3 class="text-sm font-semibold text-base-content/70"><%= record_date_label(date) %></h3>
+
+          <% records.each do |record| %>
+            <article class="card bg-base-100 shadow-sm">
+              <div class="card-body p-4 flex-row justify-between items-start">
+                <div>
+                  <span class="badge badge-outline badge-primary badge-sm">
+                    <%= record.chore.chore_category.name %>
+                  </span>
+                  <p class="font-semibold mt-1"><%= record.chore.name %></p>
+                  <% if (saved = record.minutes_saved) %>
+                    <p class="text-xs text-success mt-1">目安より<%= saved %>分早く完了しました</p>
+                  <% end %>
+                </div>
+                <p class="text-sm text-base-content/70 shrink-0">
+                  <%= format_minutes(record.actual_minutes) %>
+                </p>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>
+  
