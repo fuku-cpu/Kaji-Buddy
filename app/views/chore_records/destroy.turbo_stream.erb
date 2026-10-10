@@ -1,1 +1,2 @@
 <%= turbo_stream.replace @entry, partial: "chore_list_entries/entry", locals: { entry: @entry.reload } %>
+<%= turbo_stream.replace "today_summary", partial: "chore_list_entries/summary", locals: { summary: @summary } %>

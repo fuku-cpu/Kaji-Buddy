@@ -23,12 +23,27 @@ class ChoreRecordsController < ApplicationController
     
     @entry = entry
 
-    head :unprocessable_content unless @record.save
+    return head :unprocessable_content unless @record.save
+
+    set_today_summary
   end
 
   def destroy
     @record = current_user.chore_records.find(params[:id])
     @entry = @record.chore_list_entry
     @record.destroy!
+
+    set_today_summary
+  end
+
+  private
+
+  def set_today_summary
+    today = Date.current
+    entries = ChoreListEntry
+      .for_user(current_user)
+      .for_date(today)
+      .includes(:chore, :chore_record)
+    @summary = DailyChoreSummary.new(entries, date: today)
   end
 end

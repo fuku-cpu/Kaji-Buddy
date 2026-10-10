@@ -4,11 +4,13 @@ class ChoreListEntriesController < ApplicationController
   def guide; end
   
   def index
+    @today = Date.current
     @chore_list_entries = ChoreListEntry
       .for_user(current_user)
-      .for_date(Date.current)
+      .for_date(@today)
       .includes(:chore, :chore_record)
       .order(:id)
+      @summary = DailyChoreSummary.new(@chore_list_entries, date: @today)
   end
 
   def new
