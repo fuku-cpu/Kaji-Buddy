@@ -17,3 +17,7 @@ ja:
   chores:
     destroy:
       success: "家事を削除しました"
+  date:
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+    formats:
+      today: "%-m月%-d日(%a)"

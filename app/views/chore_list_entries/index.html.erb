@@ -7,6 +7,8 @@
           class: "btn btn-sm btn-ghost" %>
       </div>
 
+      <%= render "chore_list_entries/summary", summary: @summary %>
+
       <% if @chore_list_entries.empty? %>
         <p class="text-center opacity-60 mt-10">今日の家事はまだ登録されていません</p>
       <% else %>
@@ -18,7 +20,7 @@
   </div>
 
   <%= link_to guide_chore_list_entries_path,
-        class: "btn btn-prmary btn-circle btn-lg fixed bottom-20 right-4 shadow-lg",
+        class: "btn btn-primary btn-circle btn-lg fixed bottom-20 right-4 shadow-lg",
         aria: { label: "家事を追加する" } do %>
     +
   <% end %>

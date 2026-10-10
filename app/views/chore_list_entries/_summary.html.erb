@@ -1,0 +1,26 @@
+<div id="today_summary" class="card bg-primary text-primary-content shadow-md">
+  <div class="card-body flex-row items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-bold"><%= l(summary.date, format: :today) %></h2>
+      <p><%= summary.total_count %>件中<%= summary.completed_count %>件完了</p>
+
+      <dl class="mt-3 flex gap-6 text-sm">
+        <div>
+          <dt class="opacity-80">予定合計</dt>
+          <dd class="font-bold"><%= summary.estimated_minutes_total %>分</dd>
+        </div>
+        <div>
+          <dt class="opacity-80">実施済み</dt>
+          <dd class="font-bold"><%= summary.actual_minutes_total %>分</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="radial-progress font-bold"
+         style="--value:<%= summary.completion_rate %>; --size:5rem; --thinkness:6px;"
+         role="progressbar"
+         aria-valuenow="<%= summary.completion_rate %>">
+      <%= summary.completion_rate %>%
+    </div>
+  </div>
+</div>
