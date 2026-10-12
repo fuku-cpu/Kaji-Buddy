@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AutoDismissController from "./auto_dismiss_controller"
+application.register("auto-dismiss", AutoDismissController)
+
 import ChoreSelectionController from "./chore_selection_controller"
 application.register("chore-selection", ChoreSelectionController)
 

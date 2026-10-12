@@ -24,7 +24,6 @@
       </p>
       <% if entry.chore_record.present? %>
         <p class="text-sm opacity-60 mt-1">実施時間: <%= entry.chore_record.actual_minutes %>分</p>
-        <p class="text-sm text-success mt-1"><%= chore_feedback_message(entry.chore_record) %></p>
       <% end %>
     </div>
 

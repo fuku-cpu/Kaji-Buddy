@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :chore_list_entries, only: %i[index new create destroy] do
     get :guide, on: :collection
   end
+  resource :character_setting, only: %i[edit update]
 end
