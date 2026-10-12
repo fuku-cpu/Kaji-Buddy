@@ -1,0 +1,10 @@
+<div class="toast toast-top toast-center z-50"
+     data-controller="auto-dismiss"
+     data-action="click->auto-dismiss#close">
+  <div class="alert alert-success shadow-lg cursor-pointer">
+    <div>
+      <p class="text-xs opacity-70"><%= t("characters.#{feedback.character}.name") %>より</p>
+      <p class="font-bold"><%= feedback.text %></p>
+    </div>
+  </div>
+</div>

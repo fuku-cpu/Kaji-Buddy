@@ -1,0 +1,27 @@
+<div class="max-w-md mx-auto p-4">
+  <h1 class="text-xl font-bold mb-1">応援キャラクター</h1>
+  <p class="text-sm text-base-content/70 mb-6">家事を記録したときに声をかけてくれる相手を選べます</p>
+
+  <%= form_with model: @user, url: character_setting_path, method: :patch do |f| %>
+    <%= render "shared/error_messages", object: @user %>
+
+    <div class="space-y-3">
+      <% User.character_types.each_key do |key| %>
+        <label class="card bg-base-100 border-2 border-base-300 cursor-pointer has-checked:border-primary">
+          <div class="card-body flex-row items-start gap-3 p-4">
+            <%= f.radio_button :character_type, key, class: "radio radio-primary mt-1" %>
+            <div>
+              <p class="font-bold"><%= t("characters.#{key}.name") %></p>
+              <p class="text-sm text-base-content/70"><%= t("characters.#{key}.description") %></p>
+              <p class="text-sm mt-2 bg-base-200 rounded-box px-3 py-2">
+                「<%= FeedbackMessage.sample_for(key) %>」
+              </p>
+            </div>
+          </div>
+        </label>
+      <% end %>
+    </div>
+    
+    <%= f.submit "この人にお願いする", class: "btn btn-primary w-full mt-6" %>
+  <% end %>
+</div>

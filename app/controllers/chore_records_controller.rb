@@ -23,8 +23,16 @@ class ChoreRecordsController < ApplicationController
     
     @entry = entry
 
-    return head :unprocessable_content unless @record.save
+    unless @record.save
+      render turbo_stream: turbo_stream.update(
+        "feedback_message",
+        partial: "chore_records/error",
+        locals: { record: @record }
+      ), status: :unprocessable_content
+      return
+    end
 
+    @feedback = FeedbackMessage.new(@record)
     set_today_summary
   end
 

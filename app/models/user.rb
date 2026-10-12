@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :chores, dependent: :destroy
   has_many :chore_list_entries, dependent: :destroy
   has_many :chore_records, dependent: :destroy
+
+  enum :character_type, { friend: 0, coach: 1, butler: 2 }, validate: true
 end

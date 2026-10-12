@@ -21,3 +21,13 @@ ja:
     abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
     formats:
       today: "%-m月%-d日(%a)"
+  characters:
+    friend:
+      name: "ともだち"
+      description: "そばで一緒によろこんでくれる、優しい相棒"
+    coach:
+      name: "コーチ"
+      description: "元気いっぱいに背中を押してくれる応援団"
+    butler:
+      name: "執事"
+      description: "丁寧な言葉で労ってくれる、頼れる付き人"
