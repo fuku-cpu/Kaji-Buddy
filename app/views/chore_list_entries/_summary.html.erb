@@ -3,7 +3,6 @@
     <div>
       <h2 class="text-2xl font-bold"><%= l(summary.date, format: :today) %></h2>
       <p><%= summary.total_count %>件中<%= summary.completed_count %>件完了</p>
-
       <dl class="mt-3 flex gap-6 text-sm">
         <div>
           <dt class="opacity-80">予定合計</dt>
@@ -15,7 +14,6 @@
         </div>
       </dl>
     </div>
-
     <div class="radial-progress font-bold"
          style="--value:<%= summary.completion_rate %>; --size:5rem; --thinkness:6px;"
          role="progressbar"

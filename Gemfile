@@ -59,6 +59,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
+  gem "erb_lint", require: false
+  gem "htmlbeautifier", require: false
 end
 
 group :development do
