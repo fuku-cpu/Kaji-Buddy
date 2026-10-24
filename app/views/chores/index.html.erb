@@ -3,11 +3,11 @@
   <div role="tablist" class="tabs tabs-boxed">
     <%= link_to "すべて", chores_path,
         role: "tab",
-        class: ["tab", @selected_category_id.nil? && "tab-active"] %>
+        class: [ "tab", @selected_category_id.nil? && "tab-active" ] %>
     <% @categories.each do |category| %>
       <%= link_to category.name, chores_path(category_id: category.id),
           role: "tab",
-          class: ["tab", @selected_category_id == category.id && "tab-active"] %>
+          class: [ "tab", @selected_category_id == category.id && "tab-active" ] %>
     <% end %>
   </div>
   <% @chores_by_category. each do |category, chores| %>

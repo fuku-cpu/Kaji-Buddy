@@ -24,7 +24,7 @@
         <% chores.each do |chore| %>
           <% added = @added_chore_ids.include?(chore.id) %>
           <label class="group flex items-center justify-between border-t border-base-300 px-4 py-3
-                     has-[:checked]:bg-primary/10 <%= added ? 'opacity-50' : 'cursor-pointer' %>">
+                     has-[:checked]:bg-primary/10 <%= added ? "opacity-50" : "cursor-pointer" %>">
             <%= check_box_tag "chore_ids[]", chore.id, false,
                 id: "chore_#{chore.id}", class: "sr-only", disabled: added,
                 data: { chore_selection_target: "checkbox",
@@ -47,6 +47,6 @@
   <% end %>
   <div class="sticky bottom-20">
     <%= submit_tag "選択した家事を追加する", class: "btn btn-primary btn-block",
-          disabled: true, data: {chore_selection_target: "submit" } %>
+          disabled: true, data: { chore_selection_target: "submit" } %>
   </div>
 <% end %>

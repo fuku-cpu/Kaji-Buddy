@@ -14,7 +14,7 @@
         <%= link_to "編集", edit_chore_path(@chore), class: "btn btn-sm btn-outline" %>
         <%= button_to "削除", chore_path(@chore),
           method: :delete,
-          data: {turbo_confirm: "この家事を削除すると、関連する記録もすべて削除されます。よろしいですか？"},
+          data: { turbo_confirm: "この家事を削除すると、関連する記録もすべて削除されます。よろしいですか？" },
           class: "btn btn-sm btn-error" %>
       <% end %>
     </div>

@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center">
       <h1 class="text-2xl font-bold">Kaji buddy</h1>
       <%= link_to "ログアウト", destroy_user_session_path,
-          data: {turbo_method: :delete },
+          data: { turbo_method: :delete },
           class: "btn btn-sm btn-ghost" %>
     </div>
     <%= render "chore_list_entries/summary", summary: @summary %>

@@ -20,7 +20,7 @@
   </head>
   <body>
     <div id="feedback_message"></div>
-    <%= render 'shared/header' %>
+    <%= render "shared/header" %>
     <% if notice %>
       <p class="text-success text-sm mt-2 text-center"><%= notice %></p>
     <% elsif alert %>
@@ -29,6 +29,6 @@
     <main class="pb-24">
       <%= yield %>
     </main>
-    <%= render 'shared/footer' %>
+    <%= render "shared/footer" %>
   </body>
 </html>

@@ -2,20 +2,20 @@
   <div class="dock">
     <%= link_to root_path, class: "#{'dock-active' if current_page?(root_path)}" do %>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6" />
+        <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
       <span class="dock-label">今日の家事リスト</span>
     <% end %>
     <%= link_to chores_path, class: "#{'dock-active' if current_page?(chores_path)}" do %>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
       </svg>
       <span class="dock-label">家事一覧</span>
     <% end %>
     <%= link_to chore_records_path, class: "#{'dock-active' if current_page?(chore_records_path)}" do %>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M6 3v18M6 3h9l3 4-3 4H6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M6 3v18M6 3h9l3 4-3 4H6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
       </svg>
       <span class="dock-label">家事記録</span>
     <% end %>
