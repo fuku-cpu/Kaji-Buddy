@@ -16,7 +16,6 @@
         <span class="text-sm opacity-60">分</span>
       <% end %>
     <% end %>
-
     <div class="flex-1">
       <p class="<%= "line-through opacity-60" if entry.chore_record.present? %>">
         <%= entry.chore.name %>
@@ -26,7 +25,6 @@
         <p class="text-sm opacity-60 mt-1">実施時間: <%= entry.chore_record.actual_minutes %>分</p>
       <% end %>
     </div>
-
     <% unless entry.completed? %>
       <%= button_to "外す", chore_list_entry_path(entry), method: :delete,
             class: "btn btn-ghost btn-sm text-error",
@@ -34,6 +32,6 @@
               turbo_confirm: " 「#{entry.chore.name}」を今日のリストから外しますか？",
               turbo_frame: "_top"
             } } %>
-    <% end %> 
+    <% end %>
   </div>
 <% end %>

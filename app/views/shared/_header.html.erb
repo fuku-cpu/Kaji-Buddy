@@ -6,7 +6,6 @@
     </svg>
     <span class="font-mincho text-lg tracking-wide">kaji-buddy</span>
   </div>
-
   <% if user_signed_in? %>
     <div class="ml-auto dropdown dropdown-end">
       <div tabindex="0" role="button" class="flex items-center gap-2 cusor-pointer">
@@ -17,7 +16,6 @@
         </div>
         <span class="text-sm text-base-content/70"><%= current_user.name %>さん</span>
       </div>
-
       <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box border border-base-300 shadow-mg w-44 mt-2 p-2 z-50">
         <li><%= link_to "応援キャラ", edit_character_setting_path %></li>
       </ul>

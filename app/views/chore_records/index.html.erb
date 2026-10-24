@@ -3,17 +3,14 @@
     <h1 class="text-2xl font-bold">これまでの歩み</h1>
     <p class="text-sm text-base-content/60">今週 (<%= period_label(@period) %>) </p>
   </header>
-
   <section class="card bg-primary text-primary-content">
     <div class="card-body">
       <p class="text-xs opacity-80">今週の家事実施時間</p>
       <p class="text-4xl font-bold"><%= format_minutes(@total_minutes) %></p>
     </div>
   </section>
-
   <section class="space-y-5">
     <h2 class="text-lg font-bold">日々の積み重ね</h2>
-
     <% if @records_by_date.empty? %>
       <div class="card bg-base-100 shadow-sm">
         <div class="card-body text-sm text-base-content/60">
@@ -24,7 +21,6 @@
       <% @records_by_date.each do |date, records| %>
         <div class="space-y-2">
           <h3 class="text-sm font-semibold text-base-content/70"><%= record_date_label(date) %></h3>
-
           <% records.each do |record| %>
             <article class="card bg-base-100 shadow-sm">
               <div class="card-body p-4 flex-row justify-between items-start">
@@ -48,4 +44,3 @@
     <% end %>
   </section>
 </div>
-  

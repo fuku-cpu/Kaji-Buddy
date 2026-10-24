@@ -1,6 +1,5 @@
 <div class="max-w-md mx-auto p-4 space-y-6">
   <h1 class="text-lg font-bold text-base-content">家事一覧</h1>
-
   <div role="tablist" class="tabs tabs-boxed">
     <%= link_to "すべて", chores_path,
         role: "tab",
@@ -11,7 +10,6 @@
           class: ["tab", @selected_category_id == category.id && "tab-active"] %>
     <% end %>
   </div>
-
   <% @chores_by_category. each do |category, chores| %>
     <div class="card bg-base-100 shadow-sm">
       <div class="card-body p-4">
@@ -21,18 +19,15 @@
             <%= chores.size %>件・目安<%= chores.sum(&:estimated_minutes) %>分
           </span>
         </div>
-
         <ul class="divide-y divide-base-200">
           <%= render partial: "chore", collection: chores, as: :chore %>
         </ul>
       </div>
     </div>
   <% end %>
-
   <% if @chores_by_category.empty? %>
     <p class="text-center text-base-content/50 py-8">登録された家事がありません</p>
   <% end %>
-
   <%= link_to new_chore_path, class: "btn btn-primary btn-circle fixed bottom-24 right-4 shadow-lg z-10" do %>
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />

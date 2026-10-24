@@ -1,6 +1,5 @@
 <%= form_with model: chore, local: true, class: "space-y-4" do |f| %>
   <%= render "shared/error_messages", object: chore %>
-
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
       <%= f.label :name, class: "label" do %>
@@ -9,7 +8,6 @@
       <%= f.text_field :name, placeholder: "例：床掃除", class: "input input-bordered w-full" %>
     </div>
   </div>
-
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
       <%= f.label :chore_category_id, "カテゴリー", class: "label" %>
@@ -18,14 +16,12 @@
             { class: "select select-bordered w-full" } %>
     </div>
   </div>
-
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
       <%= f.label :estimated_minutes, "想定所要時間（分）", class: "label" %>
       <%= f.number_field :estimated_minutes, placeholder: "15", class: "input input-bordered w-full" %>
     </div>
   </div>
-
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
       <%= f.label :tools, class: "label" do %>
@@ -35,7 +31,6 @@
       <%= f.text_field :tools, placeholder: "必要な道具を入力", class: "input input-bordered w-full" %>
     </div>
   </div>
-
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
       <%= f.label :memo, "メモ・やり方のコツ(任意)", class: "label" %>
@@ -43,7 +38,6 @@
             class: "textarea textarea-bordered w-full" %>
     </div>
   </div>
-
   <div class="px-2">
     <%= f.submit (chore.new_record? ? "登録する" : "更新する"), class: "btn btn-primary w-full" %>
   </div>
