@@ -2,7 +2,7 @@ class ChoreListEntriesController < ApplicationController
   before_action :authenticate_user!
 
   def guide; end
-  
+
   def index
     @today = Date.current
     @chore_list_entries = ChoreListEntry

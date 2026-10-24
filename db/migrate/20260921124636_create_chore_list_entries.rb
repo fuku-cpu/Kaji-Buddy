@@ -7,6 +7,6 @@ class CreateChoreListEntries < ActiveRecord::Migration[8.1]
 
       t.timestamps
     end
-    add_index :chore_list_entries, [:user_id, :chore_id, :list_date], unique: true, name: "idx_unique_entry_per_day"
+    add_index :chore_list_entries, [ :user_id, :chore_id, :list_date ], unique: true, name: "idx_unique_entry_per_day"
   end
 end

@@ -5,16 +5,16 @@ end
 
 categories = {
   "掃除[定期]" => [
-    { name: "掃除機がけ", estimated_minutes: 10, tools: "掃除機"},
-    { name: "洗面所掃除", estimated_minutes: 15, tools: "マイクロファイバータオル"},
-    { name: "洗濯", estimated_minutes: 20, tools: "洗濯洗剤、柔軟剤"},
+    { name: "掃除機がけ", estimated_minutes: 10, tools: "掃除機" },
+    { name: "洗面所掃除", estimated_minutes: 15, tools: "マイクロファイバータオル" },
+    { name: "洗濯", estimated_minutes: 20, tools: "洗濯洗剤、柔軟剤" }
   ],
   "食事・調理" => [
-    { name: "買い出し", estimated_minutes: 30, tools: nil},
-    { name: "夕食準備", estimated_minutes: 45, tools: nil},
+    { name: "買い出し", estimated_minutes: 30, tools: nil },
+    { name: "夕食準備", estimated_minutes: 45, tools: nil }
   ],
   "掃除[不定期]" => [
-    { name: "エアコン掃除", estimated_minutes: 20, tools: "ブラシ"},
+    { name: "エアコン掃除", estimated_minutes: 20, tools: "ブラシ" }
   ]
 }
 

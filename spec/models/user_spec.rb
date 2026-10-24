@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   describe "バリデーション" do
     describe "name" do
       it "空の場合は無効" do
-        user = build(:user, name:"")
+        user = build(:user, name: "")
         expect(user).to be_invalid
         expect(user.errors.of_kind?(:name, :blank)).to be true
       end
@@ -73,7 +73,7 @@ RSpec.describe User, type: :model do
         expect(build(:user, character_type: type)).to be_valid
       end
     end
-    
+
     it "定義されていない値の場合は無効（例外ではなくバリデーションエラーになる）" do
       user = build(:user, character_type: "invalid")
       expect(user).to be_invalid
