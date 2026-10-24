@@ -1,12 +1,12 @@
 class Chore < ApplicationRecord
     validates :name, presence: true,length:{maximum: 255}
-    validates :estimated_minutes, presence: true,length:{maximum: 24}
+    validates :estimated_minutes, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 1440 }
 
     belongs_to :user, optional: true
     belongs_to :chore_category
 
+     has_many :chore_records, dependent: :destroy
     has_many :chore_list_entries, dependent: :destroy
-    has_many :chore_records, dependent: :destroy
 
     scope :common, -> { where(user_id: nil) }
     scope :for_user, ->(user) {where(user_id: [nil, user.id]) }
