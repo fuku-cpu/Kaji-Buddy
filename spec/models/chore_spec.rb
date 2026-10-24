@@ -20,7 +20,7 @@ RSpec.describe Chore, type: :model do
       end
 
       it "255文字の場合は有効" do
-         expect(build(:chore,name: "a" * 255)).to be_valid
+         expect(build(:chore, name: "a" * 255)).to be_valid
       end
 
       it "256文字の場合は無効" do
@@ -138,4 +138,3 @@ RSpec.describe Chore, type: :model do
     end
   end
 end
-

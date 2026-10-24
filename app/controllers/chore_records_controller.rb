@@ -20,7 +20,7 @@ class ChoreRecordsController < ApplicationController
       performed_on: Date.current,
       actual_minutes: params[:actual_minutes]
     )
-    
+
     @entry = entry
 
     unless @record.save

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root "chore_list_entries#index", as: :authenticated_root
-  end 
+  end
 
   devise_scope :user do
     root "devise/sessions#new"

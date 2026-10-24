@@ -8,6 +8,6 @@ class TightenChoreRecords < ActiveRecord::Migration[8.1]
     add_index :chore_records, :chore_list_entry_id, unique: true
 
     # 「誰の・いつの記録か」で探しやすくなる
-    add_index :chore_records, [:user_id, :performed_on]
+    add_index :chore_records, [ :user_id, :performed_on ]
   end
 end

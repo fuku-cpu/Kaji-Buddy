@@ -1,5 +1,5 @@
 class Chore < ApplicationRecord
-    validates :name, presence: true,length:{maximum: 255}
+    validates :name, presence: true, length: { maximum: 255 }
     validates :estimated_minutes, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 1440 }
 
     belongs_to :user, optional: true
@@ -9,7 +9,7 @@ class Chore < ApplicationRecord
     has_many :chore_list_entries, dependent: :destroy
 
     scope :common, -> { where(user_id: nil) }
-    scope :for_user, ->(user) {where(user_id: [nil, user.id]) }
+    scope :for_user, ->(user) { where(user_id: [ nil, user.id ]) }
 
     def owned_by?(user)
       user_id == user.id

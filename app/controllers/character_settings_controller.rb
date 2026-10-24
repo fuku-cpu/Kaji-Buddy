@@ -19,6 +19,6 @@ class CharacterSettingsController < ApplicationController
   end
 
   def character_params
-    params.expect(user: [:character_type])
+    params.expect(user: [ :character_type ])
   end
 end

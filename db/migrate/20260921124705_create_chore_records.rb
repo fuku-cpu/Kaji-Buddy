@@ -6,7 +6,7 @@ class CreateChoreRecords < ActiveRecord::Migration[8.1]
       t.references :chore_list_entry, null: false, foreign_key: true
       t.date :performed_on, null: false
       t.integer :actual_minutes
-          
+
       t.timestamps
     end
   end
