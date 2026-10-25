@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :chore_list_entry do
     association :user
-    association :chore
+    chore { association :chore, user: user }
     list_date { Date.current }
   end
 end
