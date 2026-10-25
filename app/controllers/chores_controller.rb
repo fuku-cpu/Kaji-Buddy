@@ -43,7 +43,7 @@ class ChoresController < ApplicationController
     end
 
     def destroy
-      @chore = Chore.for_user(current_user).find(params[:id])
+      @chore = current_user.chores.find(params[:id])
       @chore.destroy!
       redirect_to chores_path, notice: t(".success"), status: :see_other
     end
