@@ -64,14 +64,14 @@ RSpec.describe ChoreRecord, type: :model do
     end
 
     it ".recent_first は実施日の新しい順に並べる" do
-      expect(ChoreRecord.recent_first).to eq [new_record, mid_record, old_record]
+      expect(ChoreRecord.recent_first).to eq [ new_record, mid_record, old_record ]
     end
 
     it ".recent_first は同じ実施日なら作成日時の新しい順に並べる" do
       date = Date.new(2026, 10, 25)
       earlier = create(:chore_record, performed_on: date, created_at: 2.hours.ago)
       later = create(:chore_record, performed_on: date, created_at: 1.hour.ago)
-      expect(ChoreRecord.recent_first.first(2)).to eq [later, earlier]
+      expect(ChoreRecord.recent_first.first(2)).to eq [ later, earlier ]
     end
   end
 
