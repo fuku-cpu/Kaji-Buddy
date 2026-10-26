@@ -1,4 +1,6 @@
 class ChoreRecordsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @period = Date.current.all_week
     records = current_user.chore_records.performed_within(@period)
