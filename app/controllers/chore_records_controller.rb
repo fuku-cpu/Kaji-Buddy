@@ -12,27 +12,11 @@ class ChoreRecordsController < ApplicationController
   end
 
   def create
-    entry = ChoreListEntry.for_user(current_user).find(params[:chore_list_entry_id])
+    @entry = ChoreListEntry.for_user(current_user).find(params[:chore_list_entry_id])
+    return head :unprocessable_content if @entry.completed?
 
-    return head :unprocessable_content if entry.chore_record.present?
-
-    @record = entry.build_chore_record(
-      user: current_user,
-      chore: entry.chore,
-      performed_on: Date.current,
-      actual_minutes: params[:actual_minutes]
-    )
-
-    @entry = entry
-
-    unless @record.save
-      render turbo_stream: turbo_stream.update(
-        "feedback_message",
-        partial: "chore_records/error",
-        locals: { record: @record }
-      ), status: :unprocessable_content
-      return
-    end
+    @record = @entry.build_record(actual_minutes: params[:actual_minutes])
+    return render :error, status: :unprocessable_content unless @record.save
 
     @feedback = FeedbackMessage.new(@record)
     set_today_summary
@@ -50,10 +34,7 @@ class ChoreRecordsController < ApplicationController
 
   def set_today_summary
     today = Date.current
-    entries = ChoreListEntry
-      .for_user(current_user)
-      .for_date(today)
-      .includes(:chore, :chore_record)
+    entries = ChoreListEntry.daily_list_for(current_user, today)
     @summary = DailyChoreSummary.new(entries, date: today)
   end
 end

@@ -6,3 +6,49 @@ inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 # # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
 # Layout/SpaceInsideArrayLiteralBrackets:
 #   Enabled: false
+
+# ------------------------------------------------------------
+# Metrics: コードの複雑さを数値化する
+# omakaseではMetrics部門が丸ごと無効化されているため、個別に有効化する
+# しきい値はRuboCopのデフォルト値を明示的に記載している
+# ------------------------------------------------------------
+
+# 代入・メソッド呼び出し・条件分岐の量から算出する複雑さ
+Metrics/AbcSize:
+  Enabled: true
+  Max: 17
+
+# メソッドの行数
+Metrics/MethodLength:
+  Enabled: true
+  Max: 10
+
+# クラスの行数
+Metrics/ClassLength:
+  Enabled: true
+  Max: 100
+
+# 分岐（if / && / || など）の数
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 7
+
+# 人が読んだときに感じる分岐の複雑さ
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Max: 8
+
+# メソッドの引数の数
+Metrics/ParameterLists:
+  Enabled: true
+  Max: 5
+
+# ブロックの行数（DSLで長くなるのが自然なファイルは除外）
+Metrics/BlockLength:
+  Enabled: true
+  Max: 25
+  Exclude:
+    - "spec/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "lib/tasks/**/*"
