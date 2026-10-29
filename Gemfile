@@ -61,6 +61,7 @@ group :development, :test do
   gem "faker"
   gem "erb_lint", require: false
   gem "htmlbeautifier", require: false
+  gem "bullet"
 end
 
 group :development do
