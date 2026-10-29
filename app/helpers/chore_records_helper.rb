@@ -1,14 +1,6 @@
 module ChoreRecordsHelper
   WDAYS = %w[日 月 火 水 木 金 土].freeze
 
-  def chore_feedback_message(record)
-    if (saved = record.minutes_saved)
-      "予定よりも#{saved}分早く終わりました。テキパキこなせましたね！"
-    else
-    "お疲れ様です！"
-    end
-  end
-
   # 150 → "2時間30分"、 45 → "45分"
   def format_minutes(minutes)
     hours, mins = minutes.to_i.divmod(60)
