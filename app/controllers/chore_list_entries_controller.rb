@@ -5,12 +5,8 @@ class ChoreListEntriesController < ApplicationController
 
   def index
     @today = Date.current
-    @chore_list_entries = ChoreListEntry
-      .for_user(current_user)
-      .for_date(@today)
-      .includes(:chore, :chore_record)
-      .order(:id)
-      @summary = DailyChoreSummary.new(@chore_list_entries, date: @today)
+    @chore_list_entries = ChoreListEntry.daily_list_for(current_user, @today).order(:id)
+    @summary = DailyChoreSummary.new(@chore_list_entries, date: @today)
   end
 
   def new
@@ -25,20 +21,10 @@ class ChoreListEntriesController < ApplicationController
   end
 
   def create
-    chore_ids = Array(params[:chore_ids]).compact_blank
-    chores = Chore.for_user(current_user).where(id: chore_ids)
+    chores = Chore.for_user(current_user).where(id: Array(params[:chore_ids]).compact_blank)
+    return redirect_to new_chore_list_entry_path, alert: "追加する家事を選択してください" if chores.empty?
 
-    if chores.empty?
-      redirect_to new_chore_list_entry_path, alert: "追加する家事を選択してください"
-      return
-    end
-
-    ChoreListEntry.transaction do
-      chores.each do |chore|
-        current_user.chore_list_entries.find_or_create_by!(chore: chore, list_date: Date.current)
-      end
-    end
-
+    ChoreListEntry.bulk_add!(user: current_user, chores: chores, date: Date.current)
     redirect_to root_path, notice: "#{chores.size}件の家事を今日のリストに追加しました"
   end
 

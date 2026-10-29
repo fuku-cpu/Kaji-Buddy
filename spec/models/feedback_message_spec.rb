@@ -77,7 +77,7 @@ RSpec.describe FeedbackMessage, type: :model do
       add_entry
       record = complete(add_entry(estimated_minutes: 30), 20)
 
-      candidates = described_class::MESSAGES[:coach][:faster].map { |m| format(m, count: 1, minutes: 10) }
+      candidates = I18n.t("feedback_messages.coach.faster").map { |m| format(m, count: 1, minutes: 10) }
       expect(candidates).to include(feedback_for(record).text)
     end
 
@@ -87,7 +87,7 @@ RSpec.describe FeedbackMessage, type: :model do
       record = complete(add_entry, 30)
       text = feedback_for(record).text
 
-      candidates = described_class::MESSAGES[:friend][:nth].map { |m| format(m, count: 2, minutes: 0) }
+      candidates = I18n.t("feedback_messages.friend.nth").map { |m| format(m, count: 2, minutes: 0) }
       expect(candidates).to include(text)
       expect(text).not_to include("%{")
     end
@@ -95,7 +95,7 @@ RSpec.describe FeedbackMessage, type: :model do
 
   describe ".sample_for" do
     it "指定したキャラクターのデフォルトメッセージの1件目を返す" do
-      expect(described_class.sample_for("butler")).to eq described_class::MESSAGES[:butler][:default].first
+      expect(described_class.sample_for("butler")).to eq I18n.t("feedback_messages.butler.default").first
     end
   end
 end
