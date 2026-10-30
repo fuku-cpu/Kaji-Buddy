@@ -3,6 +3,7 @@ ja:
     models:
       chore: "家事"
       chore_category: "カテゴリー"
+      user: "ユーザー"
     attributes:
       chore:
         name: "家事の名称"
@@ -11,6 +12,11 @@ ja:
         estimated_minutes: "想定所要時間"
         tools: "必要な道具"
         memo: "メモ"
+      user:
+        name: "お名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
   errors:
     messages:
       blank: "を入力してください"
