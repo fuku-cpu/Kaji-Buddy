@@ -3,6 +3,7 @@ ja:
     models:
       chore: "家事"
       chore_category: "カテゴリー"
+      chore_record: "実施記録"
       user: "ユーザー"
     attributes:
       chore:
@@ -12,6 +13,9 @@ ja:
         estimated_minutes: "想定所要時間"
         tools: "必要な道具"
         memo: "メモ"
+      chore_record:
+        actual_minutes: "実施時間"
+        performed_on: "実施日"
       user:
         name: "お名前"
         email: "メールアドレス"

@@ -10,7 +10,9 @@
   </div>
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
-      <%= f.label :chore_category_id, "カテゴリー", class: "label" %>
+      <%= f.label :chore_category_id, class: "label" do %>
+        <span class="label-text">カテゴリー <span class="text-error">*</span></span>
+      <% end %>
       <%= f.collection_select :chore_category_id, ChoreCategory.all, :id, :name,
             { include_blank: "選択してください" },
             { class: "select select-bordered w-full" } %>
@@ -18,7 +20,9 @@
   </div>
   <div class="card bg-base-100 shadow-sm">
     <div class="card-body">
-      <%= f.label :estimated_minutes, "想定所要時間（分）", class: "label" %>
+      <%= f.label :estimated_minutes, class: "label" do %>
+        <span class="label-text">想定所要時間（分） <span class="text-error">*</span></span>
+      <% end %>
       <%= f.number_field :estimated_minutes, placeholder: "15", class: "input input-bordered w-full" %>
     </div>
   </div>
