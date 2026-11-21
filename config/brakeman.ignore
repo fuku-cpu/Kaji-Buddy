@@ -1,6 +1,27 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 130,
+      "fingerprint": "b2ef9ca037e09c20a8a7b7aec14bd62b16fb830e3723adf3b6936529ed347bde",
+      "check_name": "Ruby2Shell",
+      "message": "Ruby 3.2.3 has a critical remote code execution vulnerability (CVE-2026-132825). Upgrade to Ruby 3.3.14 or later",
+      "file": ".ruby-version",
+      "line": 1,
+      "link": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        122,
+        125,
+        787
+      ],
+      "note": "Ruby 3.2の脆弱性。表記統一Issueの範囲外のため一時除外し、Rubyアップデートの別Issueで対応する"
+    },
+    {
       "warning_type": "Unmaintained Dependency",
       "warning_code": 121,
       "fingerprint": "edf687f759ec9765bd5db185dbc615c80af77d6e7e19386fc42934e7a80307af",
@@ -20,5 +41,5 @@
       "note": "Ruby 3.2 EOL。CI導入Issueの範囲外のため一時的に除外し、Rubyのアップデートは別Issueで対応する"
     }
   ],
-  "brakeman_version": "8.1.0"
+  "brakeman_version": "8.1.1"
 }
